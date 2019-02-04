@@ -51,9 +51,8 @@ def simple_javascript(name=None):
     return render_template('simpleJavascript.html', name=name)
 
 @app.route('/content-access-js/')
-@app.route('/content-access-js/<name>')
-def contentMain(name=None):
-    return render_template('contentAccess.js', name=name)
+def contentMain():
+    return render_template('contentAccess.js')
 
 @app.route('/shutdown')
 def shutdown():
