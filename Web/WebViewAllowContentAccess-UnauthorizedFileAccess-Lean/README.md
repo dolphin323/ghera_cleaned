@@ -5,11 +5,7 @@ Apps that allow Javascript code to execute in a WebView without verifying where 
 Tested on Android 5.1.1 - Android 8.1
 
 # Description of vulnerability and corresponding exploit
-An Android app can display web pages by loading HTML/JavaScript files in a *WebView*. The loaded
-HTML/JavaScript file runs in the context of the app i.e. it has access to the same resources and has the
-same permissions the app has. For example, an HTML file loaded into the app from a server will have access
-to the app's internal file system because the HTML file loaded from the server runs in the context of
-the app.
+An Android app can display web pages via *WebView* component. The loaded HTML/JavaScript files run in the context of the app. Consequently, they have the same privilege as the app in terms of access to content providers.
 
 
 *Issue:* An application can inject and execute malicious JavaScript inside the WebView (provided the WebView allows JavaScript execution).
@@ -24,7 +20,7 @@ internal file-system. However, the web page includes a JavaScript source from an
 The JavaScript source will execute in the same context as that of the file URL which means that the JavaScript will execute in the context of the WebView
 and because of *WebSettings.setJavaScriptEnable(true)* and *WebSettings.setAllowUniversalAccessFromFileURLs(true)* it will be able to access data provided by app's *content provider*. *Misc/LocalServer* acts as man-in-the-middle that injects *Misc/LocalServer/templates/contentAccess.js* into the WebView. When the *uploadFile()* method in *contentAccess.js* executes, it reads sensitive data from the file which can be accessed by *content provider*.
 
-Note: For the WebView to have access of content provider *webSettings.setAllowContentAccess(true)* must need to be true which is true by default. 
+Note: For the WebView to have access of content provider *webSettings.setAllowContentAccess(true)* must need to be true which is true by default.
 
 
 # Steps to build the sample apps and to exploit the vulnerability
