@@ -22,6 +22,8 @@ and because of *WebSettings.setJavaScriptEnable(true)* and *WebSettings.setAllow
 
 Note: For the WebView to have access of content provider *webSettings.setAllowContentAccess(true)* must need to be true which is true by default.
 
+Linux specific failure: All Tests are passing on Linux except for API Level 27. The emulator for API level 27 cannot be started as root. Hence File2 and demo1.html cannot be pushed into the internal file system.
+
 
 # Steps to build the sample apps and to exploit the vulnerability
 
