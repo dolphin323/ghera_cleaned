@@ -76,6 +76,6 @@ Linux specific failure: All Tests are passing on Linux except for API Level 27. 
 
 # References
 
-1.  [Official Android Documentation](https://developer.android.com/reference/android/webkit/WebSettings.html#setAllowFileAccessFromFileURLs(boolean))
+1.  [Official Android Documentation](https://developer.android.com/reference/android/webkit/WebSettings#setAllowContentAccess(boolean))
 
 2.  [Bifocals:Analyzing WebView Vulnerabilities in Android Applications - Erika Chin](https://people.eecs.berkeley.edu/~daw/papers/bifocals-wisa13.pdf)
