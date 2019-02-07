@@ -9,8 +9,7 @@ An Android app can display web pages via *WebView* component. The loaded HTML/Ja
 
 
 *Issue:* An application can inject and execute malicious JavaScript inside the WebView (provided the WebView allows JavaScript execution).
-If the WebView has permission to the the app's *content provider* to perform privileged operations then the malicious JavaScript
-inside the WebView, will also have the same ability.
+The WebView has permission to access all content providers the app has access to. Therefore, the JavaScript executing in the context of WebView will also have permission to access these content providers.
 
 *Example:* The vulnerability is demonstrated by *Benign*. The
 *MainActivity* of this app has a WebView which loads an HTML file from an internal file system.
