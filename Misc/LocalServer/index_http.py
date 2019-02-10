@@ -50,6 +50,10 @@ def intentSender(name=None):
 def simple_javascript(name=None):
     return render_template('simpleJavascript.html', name=name)
 
+@app.route('/content-access-js/')
+def contentMain():
+    return render_template('contentAccess.js')
+
 @app.route('/shutdown')
 def shutdown():
     shutdown_server()
