@@ -54,6 +54,14 @@ def simple_javascript(name=None):
 def contentMain():
     return render_template('contentAccess.js')
 
+@app.route('/BenignCookie/')
+def benignCookie():
+    return render_template('benignCookie.html')
+
+@app.route('/MalCookie/')
+def malCookie():
+    return render_template('malCookie.html')
+
 @app.route('/shutdown')
 def shutdown():
     shutdown_server()
