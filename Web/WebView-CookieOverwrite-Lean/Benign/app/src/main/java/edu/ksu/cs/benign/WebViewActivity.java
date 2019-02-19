@@ -26,8 +26,5 @@ public class WebViewActivity extends AppCompatActivity {
         cookieManager.setAcceptCookie(true);
         webSettings.setJavaScriptEnabled(true);
         webView.loadUrl(getIntent().getStringExtra("url"));
-
     }
-
-
 }
