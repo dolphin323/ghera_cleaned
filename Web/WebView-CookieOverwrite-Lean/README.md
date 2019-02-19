@@ -40,9 +40,7 @@ This vulnerability is demonstrated by *Benign* app, *Benign Website BW* running 
 
     *<avd-name>* is obtained from the command listed in 3.
 
-6. Edit the *url* field in *Benign/.../HttpIntentService.java* to reflect the url of the web server.
-
-7. Build and install *Benign*:
+6. Build and install *Benign*:
 
     `$ cd Benign`
 
@@ -50,9 +48,19 @@ This vulnerability is demonstrated by *Benign* app, *Benign Website BW* running 
 
     `$ ./gradlew installApi[VERSION]Debug`
 
-8. Launch *Benign* and click on *Connect*.
+7. Click on *BENIGN WEB PAGE*.
 
-  An activity should display the response from MITM. The web content displayed in the activity demonstrates that *Benign* does not verify the identity of the hostname it connects to and accepts connections from any server including malicious ones.
+8. Click on *Put!* and then click on *getCookie!*.
+
+   You will see *username=John Doe*
+
+9. Come back to home page and click on *MALICIOUS WEB PAGE* and then click on *Put!*.
+
+10. Come back to home page and then click on *BENIGN WEB PAGE* and then click on *getCookie!*
+
+   You will see *username=Jhontu*
+
+  *BW* stores the cookie with key-value pair username=John Doe. *MW* successfully overwrites the key-value pair to username=Jhontu.
 
 # References
 
