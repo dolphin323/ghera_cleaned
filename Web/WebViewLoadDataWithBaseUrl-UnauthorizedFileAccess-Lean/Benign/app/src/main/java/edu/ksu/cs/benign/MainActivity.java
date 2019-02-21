@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        webView.loadDataWithBaseURL("file:///", data, mimeType, encoding, null);
+        webView.loadDataWithBaseURL("file:///www.google.com", data, mimeType, encoding, null);
     }
 
     private String readFile(final InputStream file) throws IOException {
