@@ -7,6 +7,8 @@ Apps that connect to a server via the *HTTP* protocol are vulnerable to Man-in-t
 
 4. **WebView-NoUserPermission-InformationExposure** Apps that disclose sensitive information without explicitly requesting the user for permission are vulnerable to unintended information exposure.
 
+5. **WebViewAllowContentAccess-UnauthorizedFileAccess-Lean** Apps that allow Javascript code to execute in a WebView without verifying where the JavaScript is coming from, can expose the app's resources.
+
 5. **WebViewAllowFileAccess-UnauthorizedFileAccess-Lean** Apps that allow Javascript code to execute in a WebView without verifying where the JavaScript is coming from, can expose the app's resources
 
 6. **WebViewIgnoreSSLWarning-MITM-Lean** Apps that ignore SSL errors when loading content in a WebView are vulnerable to MitM attacks
