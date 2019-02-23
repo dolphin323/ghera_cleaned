@@ -2,7 +2,6 @@ package edu.ksu.cs.secure;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.web.webdriver.Locator;
 import android.support.test.filters.LargeTest;
@@ -15,7 +14,6 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 
-import org.hamcrest.Matcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -24,7 +22,6 @@ import static android.support.test.espresso.web.sugar.Web.onWebView;
 import static android.support.test.espresso.web.webdriver.DriverAtoms.findElement;
 import static android.support.test.espresso.web.webdriver.DriverAtoms.getText;
 import static android.support.test.espresso.web.webdriver.DriverAtoms.webClick;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertNotNull;
@@ -82,7 +79,8 @@ public class Tests {
                 .withElement(findElement(Locator.ID, "getButton"))
                 .perform(webClick())
                 .withElement(findElement(Locator.ID, "id"))
-                .check(webMatches(getText(), org.hamcrest.CoreMatchers.equalTo("")));
+                .check(webMatches(getText(), equalTo(""))); // setAcceptCookie(false) will not send and accept cookies
+                                                                    // hence web page cannot set and read cookie and receives empty ("") string
         mDevice.pressBack();
         InstrumentationRegistry.getInstrumentation().waitForIdleSync();
 
