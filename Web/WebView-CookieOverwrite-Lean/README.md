@@ -7,7 +7,7 @@ Tested on Android 5.1.1 - Android 8.1
 # Description of vulnerability and corresponding exploit
 Android apps can display websites via WebView. Websites store state information on the browser/client sides using cookies. *Cookies* can be set either by *Set-Cookie* header or client-side *javascript* by using *document.write*.
 
-Cookies have five optional attributes. The `domain` and `path` define the scope of the cookie. A `secure` is used to send cookie only to the server with an encrypted request over the HTTPS protocol. `HttpOnly` cookies are inaccessible to Javascript's *document.cookie*. `Expires` state that when the cookie should be discarded.
+A Cookie consists of name/value pairs. A Cookie can also have five optional attributes. The two optional attributes, `domain` and `path`, define the scope of the cookie. 
 
 If a cookie shares the domain scope with a related domain, it can be directly overwritten by that domain using another cookie with the exactly same name/domain/path.
 
