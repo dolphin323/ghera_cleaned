@@ -7,11 +7,11 @@ Tested on Android 5.1.1 - Android 8.1
 # Description of vulnerability and corresponding exploit
 Android apps can display websites via WebView. Websites store state information on the browser/client sides using cookies. *Cookies* can be set either by *Set-Cookie* header or client-side *javascript* by using *document.write*.
 
-A Cookie consists of name/value pairs. A Cookie can also have five optional attributes. The two optional attributes, `domain` and `path`, define the scope of the cookie. 
+A Cookie consists of name/value pairs. A Cookie can also have five optional attributes. The two optional attributes, `domain` and `path`, define the scope of the cookie.
 
 If a cookie shares the domain scope with a related domain, it can be directly overwritten by that domain using another cookie with the exactly same name/domain/path.
 
-*Issue:* An Android app that uses WebView by default allows websites to store cookies in WebView.  A Malicious website *MW* on same domain as of Benign website *BW* can overwrite cookies set by *BW* by specifying same name/domain/path.
+*Issue:* An Android that uses WebView can allow websites to store cookies. A malicious web page *MW* from the same domain as benign web page *BW* can overwrite cookies set by *BW* by specifying the same name/domain/path.
 
 *Example:*
 This vulnerability is demonstrated by *Benign* app, *Benign Website BW* running on localhost/BenignCookie, and a *Malicious Website MW* running on localhost/MalCookie. *BW* sets a cookie in a WebView with default domain and path. *MW* sets cookie with *domain = 10.0.2.2* and *path = Benign's path* ie. BenignCookie. When *BW* tries to read the saved cookie, it will read the cookie which is overwritten by Malicious.
