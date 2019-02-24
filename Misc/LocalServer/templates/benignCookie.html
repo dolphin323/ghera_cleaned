@@ -7,7 +7,12 @@
 </body>
 <script>
 	function putCookie() {
-		document.cookie = "username=John Doe";
+		if(!(navigator.cookieEnabled)) {
+			document.getElementById('id').innerHTML = "Cookies are disabled!";
+		}
+		else {
+			document.cookie = "username=John Doe";
+		}
 	}
 
   function getCookie() {
