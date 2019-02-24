@@ -14,7 +14,7 @@ If a cookie shares the domain scope with a related domain, it can be directly ov
 *Issue:* An Android that uses WebView can allow websites to store cookies. A malicious web page *MW* from the same domain as benign web page *BW* can overwrite cookies set by *BW* by specifying the same name/domain/path.
 
 *Example:*
-This vulnerability is demonstrated by *Benign* app, *Benign Website BW* running on localhost/BenignCookie, and a *Malicious Website MW* running on localhost/MalCookie. *BW* sets a cookie in a WebView with default domain and path. *MW* sets cookie with *domain = 10.0.2.2* and *path = Benign's path* ie. BenignCookie. When *BW* tries to read the saved cookie, it will read the cookie which is overwritten by Malicious.
+This vulnerability is demonstrated by Benign* app, *Benign Website BW* available at *localhost/BenignCookie*, and a *Malicious Website MW* available at *localhost/MalCookie*. *BW* sets a cookie in a WebView with default domain and path. *MW* sets cookie with *domain = 10.0.2.2* (IP of the local server) and *path = /BenignCookie* (the path/route of *BW* on the local server). When *BW* tries to read the saved cookie, it will read the cookie which is overwritten by Malicious.
 
 # Steps to build the sample apps and to exploit the vulnerability
 
