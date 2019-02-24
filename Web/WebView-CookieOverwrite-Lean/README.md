@@ -1,5 +1,5 @@
 # Summary
-Apps that allow a websites to store cookies in WebView are indirectly assisting in *cookie overwrite* attacks.   
+Apps that allow websites viewed through WebView may enable *cookie overwrite* attacks.   
 
 # Android versions affected
 Tested on Android 5.1.1 - Android 8.1
