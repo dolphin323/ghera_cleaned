@@ -76,11 +76,10 @@ public class Tests {
         onWebView()
                 .withElement(findElement(Locator.ID, "putButton"))
                 .perform(webClick())
-                .withElement(findElement(Locator.ID, "getButton"))
-                .perform(webClick())
+//                .withElement(findElement(Locator.ID, "getButton"))
+//                .perform(webClick())
                 .withElement(findElement(Locator.ID, "id"))
-                .check(webMatches(getText(), equalTo(""))); // setAcceptCookie(false) will not send and accept cookies
-                                                                    // hence web page cannot set and read cookie and receives empty ("") string
+                .check(webMatches(getText(), equalTo("Cookies are disabled!"))); // setAcceptCookie(false) will not send and accept cookies
         mDevice.pressBack();
         InstrumentationRegistry.getInstrumentation().waitForIdleSync();
 
@@ -89,7 +88,9 @@ public class Tests {
         button.clickAndWaitForNewWindow();
         onWebView()
                 .withElement(findElement(Locator.ID, "putButton"))
-                .perform(webClick());
+                .perform(webClick())
+                .withElement(findElement(Locator.ID, "id"))
+                .check(webMatches(getText(), equalTo("Cookies are disabled!")));
         mDevice.pressBack();
 
         button = mDevice.findObject(new UiSelector().resourceId(SECURE_APP_PACKAGE + ":id/benign"));
