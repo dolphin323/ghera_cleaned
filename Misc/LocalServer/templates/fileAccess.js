@@ -16,3 +16,9 @@ function uploadFile(){
     	}
     	rawFile.send(null);
 }
+
+/*
+Note: This JavaScript file is shared with following benchmarks:
+1. Web/WebViewAllowFileAccess-UnauthorizedFileAccess-Lean
+2. Web/WebViewLoadDataWithBaseUrl-UnauthorizedFileAccess-Lean
+*/
