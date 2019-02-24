@@ -5,7 +5,7 @@ Apps that allow websites viewed through WebView may enable *cookie overwrite* at
 Tested on Android 5.1.1 - Android 8.1
 
 # Description of vulnerability and corresponding exploit
-Android apps can load websites in WebView. Websites store state information on browser in terms of *cookies*. *Cookies* can be set either by *Set-Cookie* header or client-side *javascript* by using *document.write*.
+Android apps can display websites via WebView. Websites store state information on the browser/client sides using cookies. *Cookies* can be set either by *Set-Cookie* header or client-side *javascript* by using *document.write*.
 
 Cookies have five optional attributes. The `domain` and `path` define the scope of the cookie. A `secure` is used to send cookie only to the server with an encrypted request over the HTTPS protocol. `HttpOnly` cookies are inaccessible to Javascript's *document.cookie*. `Expires` state that when the cookie should be discarded.
 
