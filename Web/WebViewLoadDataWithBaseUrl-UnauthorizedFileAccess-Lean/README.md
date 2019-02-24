@@ -1,5 +1,5 @@
 # Summary
-Apps that use *file scheme baseURL* as a baseURL in *loadDataWithBaseUrl()* allow JavaScript code to execute in a WebView without verifying where the JavaScript is coming from, can expose the app's resources.
+Apps that use loadDataWithBaseUrl() with a file scheme based baseURL (e.g., file://www.google.com) and allow the execution of JavaScript sourced from unverified source may expose the app's resources.
 
 # Android versions affected
 Tested on Android 5.1.1 - Android 8.1
