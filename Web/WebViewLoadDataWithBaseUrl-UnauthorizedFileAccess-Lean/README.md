@@ -15,7 +15,7 @@ The WebView uses *WebSettings.setJavaScriptEnable(true)* to enable JavaScript to
 to enable URLs with file scheme to access local device files. Note that this is secure because the web page is loaded from a file in the
 internal file-system. However, the web page includes a JavaScript source from an Http server which gets loaded into the WebView.
 The JavaScript source will execute in the same context as that of the file URL which means that the JavaScript will execute in the context of the WebView
-and because of *WebSettings.setJavaScriptEnable(true)* and *WebSettings.setAllowFileAccessFromFileURLs(true)* it will be able to access local device files. *Misc/LocalServer* acts as man-in-the-middle that injects *Misc/LocalServer/templates/fileAccess.js* into the WebView. When the *uploadFile()* method in *fileAccess.js* executes, it reads sensitive data from the file is stored in an internal file system of *Benign* app.
+and because of *WebSettings.setJavaScriptEnable(true)* and *WebSettings.setAllowFileAccessFromFileURLs(true)* it will be able to access local device files. When the *uploadFile()* method in *fileAccess.js* executes, it reads sensitive data from the file is stored in an internal file system of *Benign* app.
 
 # Steps to build the sample apps and to exploit the vulnerability
 
