@@ -25,6 +25,7 @@ The JavaScript source will execute in the same context as that of the file URL w
 and because of *WebSetting.setJavaScriptEnable(true)* and *WebSetting.setAllowFileAccessFromFileURLs(true)* it will be able to access files in the internal
 file system. *Misc/LocalServer* acts as man-in-the-middle that injects *Misc/LocalServer/templates/fileAccess.js* into the WebView. When the *uploadFile()* method in *fileAccess.js* executes, it reads sensitive data from the internal file-system.
 
+Note: Misc/LocalServer/templates/fileAccess.js is shared with Web/WebViewLoadDataWithBaseUrl-UnauthorizedFileAccess-Lean.
 
 # Steps to build the sample apps and to exploit the vulnerability
 
@@ -67,7 +68,7 @@ file system. *Misc/LocalServer* acts as man-in-the-middle that injects *Misc/Loc
         `$ adb root`
 
         `$ adb push demo1.html /data/data/edu.ksu.cs.benign/files/demo1.html`
-        
+
         `$ adb push File2 /data/data/edu.ksu.cs.benign/files/File2`
 
 

@@ -17,6 +17,8 @@ internal file-system. However, the web page includes a JavaScript source from an
 The JavaScript source will execute in the same context as that of the file URL which means that the JavaScript will execute in the context of the WebView
 and because of *WebSettings.setJavaScriptEnable(true)* and *WebSettings.setAllowFileAccessFromFileURLs(true)* it will be able to access local device files. When the *uploadFile()* method in *fileAccess.js* executes, it reads sensitive data from the file is stored in an internal file system of *Benign* app.
 
+Note: Misc/LocalServer/templates/fileAccess.js is shared with Web/WebViewAllowFileAccess-UnauthorizedFileAccess-Lean.
+
 # Steps to build the sample apps and to exploit the vulnerability
 
 1. Setup a local Web Server. We have used Flask here. If you want to use Flask follow the instructions [here](https://bitbucket.org/secure-it-i/android-app-vulnerability-benchmarks/src/76cc87180f064b328c37cc57b5c743dba378a5de/Misc/LocalServer/README.md?at=master&fileviewer=file-view-default).
