@@ -7,8 +7,7 @@ Tested on Android 5.1.1 - Android 8.1
 # Description of vulnerability and corresponding exploit
 An Android app can display web pages via *WebView* component. The loaded HTML/JavaScript files run in the context of the app. Consequently, they have the same privilege as the app in terms of access to resources.
 
-*Issue:* An application can load saved HTML web page as a string using *loadDataWithBaseUrl()* with *file scheme baseURL*. Saved web page can source JavaScript from a malicious server.
-The WebView has permission to access all resources the app has access to. Therefore, the JavaScript executing in the context of WebView will also have permission to access these resources.
+*Issue:* An application can load saved HTML web page as a string using *loadDataWithBaseUrl()* with *file scheme baseURL*. Since WebView has permission to access all of the app’s resources, JavaScript code executing in the context of WebView will also have same permissions. If the saved web page sources JavaScript code from a malicious server, then these permissions can be abused.
 
 *Example:* The vulnerability is demonstrated by *Benign*. The
 *MainActivity* of this app has a WebView which loads an HTML file from an internal file system.
