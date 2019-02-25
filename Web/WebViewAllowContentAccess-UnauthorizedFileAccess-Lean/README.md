@@ -71,7 +71,7 @@ Linux specific failure: All Tests are passing on Linux except for API Level 27. 
 
 9. Launch *Benign*.
 
-    The WebView should display the contents of *File2* thus demonstrating that *fileAccess.js* has access to the internal file-system of the app.
+    The WebView should display the contents of *File2* thus demonstrating that *contentAccess.js* has access to the internal file-system of the app.
 
 # References
 
