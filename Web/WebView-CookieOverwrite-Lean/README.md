@@ -7,7 +7,7 @@ Tested on Android 5.1.1 - Android 8.1
 # Description of vulnerability and corresponding exploit
 Android apps can display websites via WebView. Websites store state information on the browser/client sides using cookies. *Cookies* can be set either by *Set-Cookie* header or client-side *javascript* by using *document.write*.
 
-A cookie consists of name, value, and zero or more attributes as name/value pairs. The domain and path are two attributes that define the scope of a cookie.
+A cookie consists of name, value, and zero or more attributes as name/value pairs. The *domain* and *path* are two attributes that define the scope of a cookie.
 
 If a cookie shares the domain scope with a related domain, it can be directly overwritten by that domain using another cookie with the exactly same name/domain/path.
 
