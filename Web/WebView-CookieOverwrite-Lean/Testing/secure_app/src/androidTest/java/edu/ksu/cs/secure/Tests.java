@@ -76,8 +76,6 @@ public class Tests {
         onWebView()
                 .withElement(findElement(Locator.ID, "putButton"))
                 .perform(webClick())
-//                .withElement(findElement(Locator.ID, "getButton"))
-//                .perform(webClick())
                 .withElement(findElement(Locator.ID, "id"))
                 .check(webMatches(getText(), equalTo("Cookies are disabled!"))); // setAcceptCookie(false) will not send and accept cookies
         mDevice.pressBack();
