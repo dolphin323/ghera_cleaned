@@ -11,8 +11,10 @@ public class MyWebViewClient extends WebViewClient {
 
     @Override
     public void onReceivedHttpAuthRequest(WebView view, HttpAuthHandler handler, String host, String realm) {
-        if(count == 3)
+        if(count == 1) {
+            --count;
             handler.cancel();
+        }
         else {
             if(username != null && password != null) {
                 Log.d("username", username);
