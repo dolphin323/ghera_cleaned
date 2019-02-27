@@ -7,11 +7,11 @@ function before_test_vuln() {
 }
 
 function after_uninstall_vuln() {
-  #put any task that needs to be performed after uninstalling vulnerable
+  after_uninstall_secure
 }
 
 function before_install_secure() {
-  #put any task that needs to be performed before installing secure
+  before_install_vuln
 }
 
 function before_test_secure() {
