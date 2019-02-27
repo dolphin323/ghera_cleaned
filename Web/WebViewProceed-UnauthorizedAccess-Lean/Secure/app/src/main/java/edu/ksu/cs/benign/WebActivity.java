@@ -25,7 +25,7 @@ public class WebActivity extends AppCompatActivity {
         final WebView webView = findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
         doWebSettings(webView);
-        webView.loadUrl("http://10.0.2.2:5001/"+getIntent().getStringExtra("ssn"), getBasicHead());
+        webView.loadUrl("http://10.0.2.2:5000/"+getIntent().getStringExtra("ssn"), getBasicHead());
     }
 
     private void doWebSettings(WebView webView) {
