@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Benign</string>
+    <string name="app_name">Secure</string>
     <string name="url_extention">/intent/</string>
     <string name="benign_url">http://10.0.2.2:5000/BenignCookie/</string>
     <string name="mal_url">http://10.0.2.2:5000/MalCookie/</string>
