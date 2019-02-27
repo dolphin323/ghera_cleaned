@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="id" align="left"> Benign... </p>
+<input type='Button' id='putButton' value='Put!' onClick="putCookie();">
+<input type='Button' id='getButton' value='getCookie!' onClick="getCookie();">
+</body>
+<script>
+	function putCookie() {
+		if(!(navigator.cookieEnabled)) {
+			document.getElementById('id').innerHTML = "Cookies are disabled!";
+		}
+		else {
+			document.cookie = "username=John Doe";
+		}
+	}
+
+  function getCookie() {
+      var x = document.cookie;
+      document.getElementById('id').innerHTML = x;
+  }
+</script>
+</html>
