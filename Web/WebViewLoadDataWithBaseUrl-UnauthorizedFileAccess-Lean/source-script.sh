@@ -20,7 +20,6 @@ function before_test_secure() {
     exit -1
   fi
   $ANDROID_HOME/platform-tools/adb root
-  $ANDROID_HOME/platform-tools/adb push demo1.html /data/data/edu.ksu.cs.benign/files/demo1.html
   $ANDROID_HOME/platform-tools/adb push File2 /data/data/edu.ksu.cs.benign/files/File2
 }
 
