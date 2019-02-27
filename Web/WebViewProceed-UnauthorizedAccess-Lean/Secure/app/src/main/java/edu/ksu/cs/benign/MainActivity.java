@@ -1,9 +1,9 @@
 package edu.ksu.cs.benign;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,15 +16,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        WebView webView = (WebView) findViewById(R.id.webview1);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        /*
-        The url throws an SSL error
-         */
-        String url = "https://" + getResources().getString(R.string.local_server_ipv4) + ":" +
-                getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
-        webView.loadUrl(url);
-        webView.setWebViewClient(new MyWebViewClient());
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(
+                        new Intent(getApplicationContext(), WebActivity.class)
+                        .putExtra("username", "john")
+                        .putExtra("password", "hello")
+                        .putExtra("ssn", "123")
+                );
+            }
+        });
     }
 }
