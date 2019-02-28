@@ -1,4 +1,4 @@
-package edu.ksu.cs.secure;
+package edu.ksu.cs.benign;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,7 +9,9 @@ import android.support.test.filters.SdkSuppress;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
+import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObjectNotFoundException;
+import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 
 import org.junit.Test;
@@ -29,6 +31,7 @@ import static org.junit.Assert.assertThat;
 public class Tests {
     private static final int LAUNCH_TIMEOUT = 5000;
     private static final String BENIGN_APP_PACKAGE = "edu.ksu.cs.benign";
+    private static final String MALICIOUS_APP_PACKAGE = "edu.ksu.cs.malicious";
     private UiDevice mDevice;
 
     private void setupDevice() {
@@ -61,13 +64,32 @@ public class Tests {
     }
 
     @Test
-    public void testAbsenceOfVulnerability() throws UiObjectNotFoundException {
+    public void testPresenceOfVulnerability() throws UiObjectNotFoundException {
         setupDevice();
 
         startApp(BENIGN_APP_PACKAGE);
+        UiObject button = mDevice.findObject(new UiSelector()
+                .resourceId(BENIGN_APP_PACKAGE + ":id/button"));
+        assertThat(button, notNullValue());
+        button.clickAndWaitForNewWindow();
+
+        InstrumentationRegistry.getInstrumentation().waitForIdleSync();
 
         onWebView()
-                .withElement(findElement(Locator.CSS_SELECTOR, "body"))
-                .check(webMatches(getText(), containsString("SSL error detected")));
+                .withElement(findElement(Locator.ID, "message"))
+                .check(webMatches(getText(), containsString("Hello, john! SSN=123")));
+
+        mDevice.pressBack();
+
+        startApp(MALICIOUS_APP_PACKAGE);
+        UiObject malButton = mDevice.findObject(new UiSelector()
+                .resourceId(MALICIOUS_APP_PACKAGE + ":id/button"));
+        assertThat(malButton, notNullValue());
+        malButton.clickAndWaitForNewWindow();
+
+        onWebView()
+                .withElement(findElement(Locator.ID, "message"))
+                .check(webMatches(getText(), containsString("Unauthorized access!")));
+
     }
 }
