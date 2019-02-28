@@ -1,6 +1,6 @@
 function before_install_vuln() {
   cd ../../Misc/LocalServer/
-  python index_https.py &
+  python index_http.py &
   echo "benchmark path = $1"
   cd $1
 }
@@ -26,5 +26,5 @@ function before_test_secure() {
 }
 
 function after_uninstall_secure() {
-  curl -k https://localhost:5000/shutdown
+  curl -k http://localhost:5000/shutdown
 }
