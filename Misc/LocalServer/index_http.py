@@ -24,10 +24,14 @@ def get_pw(username):
         return users.get(username)
     return None
 
-@app.route('/<ssn>')
+@app.route('/ssn/<ssn>')
 @auth.login_required
 def secureEntry(ssn):
-    return "Hello, %s! SSN=%s" % (auth.username(), ssn)
+    return render_template('proceed.html', username=auth.username(), ssn=ssn)
+
+@auth.error_handler
+def auth_error():
+    return render_template('failed.html')
 
 @app.route('/test/')
 @app.route('/test/<name>')
