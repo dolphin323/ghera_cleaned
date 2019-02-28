@@ -1,5 +1,5 @@
 function before_install_vuln() {
-  $webServer = Start-Process powershell "cd ..\..\Misc\LocalServer; python.exe .\index_https.py" -PassThru
+  $webServer = Start-Process powershell "cd ..\..\Misc\LocalServer; python.exe .\index_http.py" -PassThru
 }
 
 function before_test_vuln() {
@@ -21,7 +21,7 @@ function before_test_secure() {
 function after_uninstall_secure() {
   $web = New-Object Net.WebClient
   [System.Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
-  $web.DownloadString("https://localhost:5000/shutdown")
+  $web.DownloadString("http://localhost:5000/shutdown")
   [System.Net.ServicePointManager]::ServerCertificateValidationCallback = $null
   echo "killed the web server"
 }
