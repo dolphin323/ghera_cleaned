@@ -1,31 +1,23 @@
 # Summary
-Apps that allow Javascript code to execute in a WebView without verifying where the JavaScript is coming from, can expose the app's resources.
+Apps that use `loadDataWithBaseUrl()` with a *file scheme* based *baseURL* (e.g., file://www.google.com) and allow the execution of JavaScript sourced from unverified source may expose the app's resources.
 
 # Android versions affected
 Tested on Android 5.1.1 - Android 8.1
 
 # Description of vulnerability and corresponding exploit
-An Android app can display web pages by loading HTML/JavaScript files in a *WebView*. The loaded
-HTML/JavaScript file runs in the context of the app i.e. it has access to the same resources and has the
-same permissions the app has. For example, an HTML file loaded into the app from a server will have access
-to the app's internal file system because the HTML file loaded from the server runs in the context of
-the app.
+An Android app can display web pages via *WebView* component. The loaded HTML/JavaScript files run in the context of the app. Consequently, they have the same privilege as the app in terms of access to resources.
 
-
-*Issue:* An application can inject and execute malicious JavaScript inside the WebView (provided the WebView allows JavaScript execution).
-If the WebView has access to the the app's internal resources or has permission to perform privileged operations then the malicious JavaScript
-inside the WebView, will also have the same ability.
+*Issue:* An application can load saved HTML web page as a string using *loadDataWithBaseUrl()* with *file scheme baseURL*. Since WebView has permission to access all of the app’s resources, JavaScript code executing in the context of WebView will also have same permissions. If the saved web page sources JavaScript code from a malicious server, then these permissions can be abused.
 
 *Example:* The vulnerability is demonstrated by *Benign*. The
 *MainActivity* of this app has a WebView which loads an HTML file from an internal file system.
-The WebView uses *WebSetting.setJavaScriptEnable(true)* to enable JavaScript to execute in its context and uses *WebSetting.setAllowFileAccessFromFileURLs(true)*
-to enable URLs with file scheme to access files in the app's internal file system. Note that this is secure because the web page is loaded from a file in the
-internal file-system. However, the web page includes a JavaScript source from an Http server which gets loaded into the WebView when the file URL is loaded.
+The WebView uses *WebSettings.setJavaScriptEnable(true)* to enable JavaScript to execute in its context and uses *WebSettings.setAllowFileAccessFromFileURLs(true)*
+to enable URLs with file scheme to access local device files. Note that this is secure because the web page is loaded from a file in the
+internal file-system. However, the web page includes a JavaScript source from an Http server which gets loaded into the WebView.
 The JavaScript source will execute in the same context as that of the file URL which means that the JavaScript will execute in the context of the WebView
-and because of *WebSetting.setJavaScriptEnable(true)* and *WebSetting.setAllowFileAccessFromFileURLs(true)* it will be able to access files in the internal
-file system. *Misc/LocalServer* acts as man-in-the-middle that injects *Misc/LocalServer/templates/fileAccess.js* into the WebView. When the *uploadFile()* method in *fileAccess.js* executes, it reads sensitive data from the internal file-system.
+and because of *WebSettings.setJavaScriptEnable(true)* and *WebSettings.setAllowFileAccessFromFileURLs(true)* it will be able to access local device files. When the *uploadFile()* method in *fileAccess.js* executes, it reads sensitive data from the file is stored in an internal file system of *Benign* app.
 
-Note: Misc/LocalServer/templates/fileAccess.js is shared with Web/WebViewLoadDataWithBaseUrl-UnauthorizedFileAccess-Lean.
+Note: Misc/LocalServer/templates/fileAccess.js is shared with Web/WebViewAllowFileAccess-UnauthorizedFileAccess-Lean.
 
 # Steps to build the sample apps and to exploit the vulnerability
 
@@ -74,10 +66,12 @@ Note: Misc/LocalServer/templates/fileAccess.js is shared with Web/WebViewLoadDat
 
 9. Launch *Benign*.
 
+10. Click on *Click Me!* button.
+
     The WebView should display the contents of *File2* thus demonstrating that *fileAccess.js* has access to the internal file-system of the app.
 
 # References
 
-1.  [Official Android Documentation](https://developer.android.com/reference/android/webkit/WebSettings.html#setAllowFileAccessFromFileURLs(boolean))
+1.  [Official Android Documentation](https://developer.android.com/reference/android/webkit/WebSettings#setAllowContentAccess(boolean))
 
 2.  [Bifocals:Analyzing WebView Vulnerabilities in Android Applications - Erika Chin](https://people.eecs.berkeley.edu/~daw/papers/bifocals-wisa13.pdf)
