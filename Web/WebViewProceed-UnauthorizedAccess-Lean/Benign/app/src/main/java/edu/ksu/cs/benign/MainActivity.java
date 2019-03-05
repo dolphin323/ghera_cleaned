@@ -1,12 +1,9 @@
 package edu.ksu.cs.benign;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(
                         new Intent(getApplicationContext(), WebActivity.class)
-                        .putExtra("username", "john")
-                        .putExtra("password", "hello")
-                        .putExtra("ssn", "123")
+                                .putExtra("username", "john")
+                                .putExtra("password", "hello")
+                                .putExtra("ssn", "123")
                 );
             }
         });

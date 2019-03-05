@@ -1,16 +1,10 @@
 package edu.ksu.cs.benign;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.SortedMap;
 
 public class WebActivity extends AppCompatActivity {
 
@@ -27,7 +21,7 @@ public class WebActivity extends AppCompatActivity {
         MyWebViewClient myWebViewClient = getWebViewClient(getIntent());
         webView.setWebViewClient(myWebViewClient);
         doWebSettings(webView);
-        webView.loadUrl("http://10.0.2.2:5000/ssn/"+getIntent().getStringExtra("ssn"));
+        webView.loadUrl("http://10.0.2.2:5000/ssn/" + getIntent().getStringExtra("ssn"));
     }
 
     private MyWebViewClient getWebViewClient(Intent intent) {
