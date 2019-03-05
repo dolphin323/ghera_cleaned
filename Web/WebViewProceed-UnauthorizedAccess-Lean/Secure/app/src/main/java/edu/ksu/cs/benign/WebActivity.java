@@ -1,6 +1,5 @@
 package edu.ksu.cs.benign;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -25,7 +24,7 @@ public class WebActivity extends AppCompatActivity {
         final WebView webView = findViewById(R.id.webview);
         webView.setWebViewClient(new WebViewClient());
         doWebSettings(webView);
-        webView.loadUrl("http://10.0.2.2:5000/ssn/"+getIntent().getStringExtra("ssn"), getBasicHead());
+        webView.loadUrl("http://10.0.2.2:5000/ssn/" + getIntent().getStringExtra("ssn"), getBasicHead());
     }
 
     private void doWebSettings(WebView webView) {
@@ -37,14 +36,14 @@ public class WebActivity extends AppCompatActivity {
     }
 
     private String getEncodedString() {
-        final String userpass = getIntent().getStringExtra("username")+":"+getIntent().getStringExtra("password");
+        final String userpass = getIntent().getStringExtra("username") + ":" + getIntent().getStringExtra("password");
         return Base64.encodeToString(userpass.getBytes(),
                 Base64.DEFAULT);
     }
 
     private Map getBasicHead() {
         Map<String, String> additionalHeader = new HashMap();
-        additionalHeader.put("Authorization", "Basic "+ getEncodedString());
+        additionalHeader.put("Authorization", "Basic " + getEncodedString());
         return additionalHeader;
     }
 

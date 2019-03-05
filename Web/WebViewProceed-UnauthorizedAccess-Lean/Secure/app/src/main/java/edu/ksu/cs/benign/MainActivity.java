@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(
                         new Intent(getApplicationContext(), WebActivity.class)
-                        .putExtra("username", "john")
-                        .putExtra("password", "hello")
-                        .putExtra("ssn", "123")
+                                .putExtra("username", "john")
+                                .putExtra("password", "hello")
+                                .putExtra("ssn", "123")
                 );
             }
         });
