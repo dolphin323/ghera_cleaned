@@ -1,5 +1,5 @@
 # Summary
-Apps that use `HttpAuthHandler#proceed(username, password)` to instruct the WebView to proceed with the authentication with the given credentials may give unauthorized access to third-party without validating credentials by sending token of previously validated credentials.
+Apps that use `HttpAuthHandler#proceed(username, password)` to instruct the WebView to perform authentication with the given credentials may give unauthorized access to third-party when the apps do not validate credentials, e.g., by sending token of previously validated credentials.
 
 # Android versions affected
 Tested on Android 5.1.1 - Android 8.1
