@@ -70,3 +70,4 @@ An Android app can use `HttpAuthHandler#proceed(username, password)` to instruct
 
 2.  [HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 3.  [Authorization Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)
+4. [GitHub discussion about browser sending credentials](https://github.com/miguelgrinberg/Flask-HTTPAuth/issues/14#issuecomment-211992433)
