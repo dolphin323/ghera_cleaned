@@ -1,37 +1,13 @@
 from flask import render_template
 from flask import Flask
 from flask import request
-from flask_httpauth import HTTPBasicAuth
-
 app = Flask(__name__)
-auth = HTTPBasicAuth()
 
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')
     if func is None:
         raise RuntimeError('Not running serever')
     func()
-
-users = {
-    "john": "hello",
-    "susan": "bye"
-}
-
-@auth.get_password
-def get_pw(username):
-    print(username)
-    if username in users:
-        return users.get(username)
-    return None
-
-@app.route('/ssn/<ssn>')
-@auth.login_required
-def secureEntry(ssn):
-    return render_template('proceed.html', username=auth.username(), ssn=ssn)
-
-@auth.error_handler
-def auth_error():
-    return render_template('failed.html')
 
 @app.route('/test/')
 @app.route('/test/<name>')
@@ -77,6 +53,14 @@ def simple_javascript(name=None):
 @app.route('/content-access-js/')
 def contentMain():
     return render_template('contentAccess.js')
+
+@app.route('/BenignCookie/')
+def benignCookie():
+    return render_template('benignCookie.html')
+
+@app.route('/MalCookie/')
+def malCookie():
+    return render_template('malCookie.html')
 
 @app.route('/shutdown')
 def shutdown():
