@@ -1,9 +1,12 @@
 package edu.ksu.cs.benign;
 
+import android.net.http.SslError;
 import android.util.Log;
 import android.webkit.HttpAuthHandler;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebViewDatabase;
 
 public class MyWebViewClient extends WebViewClient {
     protected String username, password;
@@ -22,5 +25,10 @@ public class MyWebViewClient extends WebViewClient {
             handler.proceed(username, password);
             ++count;
         }
+    }
+
+    @Override
+    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+        handler.proceed();
     }
 }
