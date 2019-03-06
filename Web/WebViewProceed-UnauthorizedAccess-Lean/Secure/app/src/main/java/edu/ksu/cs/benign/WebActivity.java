@@ -22,17 +22,14 @@ public class WebActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         final WebView webView = findViewById(R.id.webview);
-        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new MyWebViewClient());
         doWebSettings(webView);
-        webView.loadUrl("http://10.0.2.2:5000/ssn/" + getIntent().getStringExtra("ssn"), getBasicHead());
+        webView.loadUrl("https://10.0.2.2:5000/ssn/" + getIntent().getStringExtra("ssn"), getBasicHead());
     }
 
     private void doWebSettings(WebView webView) {
         final WebSettings webSettings = webView.getSettings();
-        webSettings.setAllowFileAccess(true);
-        webSettings.setAllowFileAccessFromFileURLs(true);
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setAllowUniversalAccessFromFileURLs(true);
     }
 
     private String getEncodedString() {
