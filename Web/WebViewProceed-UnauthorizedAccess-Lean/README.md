@@ -11,7 +11,7 @@ An Android app can use `HttpAuthHandler#proceed(username, password)` to instruct
 
 *Example:* The vulnerability is demonstrated by *Benign* and *Malicious*. The *Benign* app has an exported activity which accepts *username/password* pair and *ssn*. *Benign* connects to a server which asks for authentication to proceed to the *ssn* page. *Benign* has a *WebViewClient* which proceeds using provided *username/password* pair using `HttpAuthHandler#proceed(username, password)`. After a valid authentication of one or more *username/password* pair, *Malicious* sends a request to the exported activity of *Benign* with a *username/password* pair and *ssn*. Since *Benign* has a valid credentials from previous authentication, *Benign* sends the saved credentials and uploads *Malicious's* *ssn* on the server.
 
-To defend against this attack, a *secure* app is attaching an *Authorization header* to the loaded url using `WebView#loadUrl(url, additionalHttpHeaders)`.
+To defend against this attack, a *secure* app attaches an *Authorization header* while loading the url. The *Authorization header* consists of a `Basic` keyword and `username:password` encoded using base64 encoding, separated by a single space. This header gets added to the requested url using `WebView#loadUrl(url, additionalHttpHeaders)`. This forces *WebView* to send the attached header rather than sending saved credentials. On the server side, provided header gets extracted and credentials gets validated at the server side.
 
 # Steps to build the sample apps and to exploit the vulnerability
 
