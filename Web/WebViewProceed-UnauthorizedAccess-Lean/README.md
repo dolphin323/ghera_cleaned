@@ -13,6 +13,8 @@ An Android app can use `HttpAuthHandler#proceed(username, password)` to instruct
 
 To defend against this attack, a *secure* app attaches an *Authorization header* while loading the url. The *Authorization header* consists of a `Basic` keyword and `username:password` encoded using base64 encoding, separated by a single space. This header gets added to the requested url using `WebView#loadUrl(url, additionalHttpHeaders)`. This forces *WebView* to send the attached header rather than sending saved credentials. On the server side, provided header gets extracted and credentials gets validated at the server side.
 
+**DISCLAIMER: The way we are securing against this vulnerability is by sending credentials every single time using Authorization header. This way the secure app discards the saved credentials. This is one of the ways to secure against this vulnerability. The best way to secure against this vulnerability is to send credentials using Authorization header only if the newly acquired credentials differ from the credentials used for the previous session.**
+
 # Steps to build the sample apps and to exploit the vulnerability
 
 1. Setup a local Web Server. We have used Flask here. If you want to use Flask follow the instructions [here](https://bitbucket.org/secure-it-i/android-app-vulnerability-benchmarks/src/76cc87180f064b328c37cc57b5c743dba378a5de/Misc/LocalServer/README.md?at=master&fileviewer=file-view-default).
