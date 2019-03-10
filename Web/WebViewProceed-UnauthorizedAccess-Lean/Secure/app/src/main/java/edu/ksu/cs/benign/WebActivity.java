@@ -25,6 +25,13 @@ public class WebActivity extends AppCompatActivity {
         webView.setWebViewClient(new MyWebViewClient());
         doWebSettings(webView);
         webView.loadUrl("https://10.0.2.2:5000/ssn/" + getIntent().getStringExtra("ssn"), getBasicHead());
+
+        /*
+        DISCLAIMER: The way we are securing against this vulnerability is by sending credentials every single time using Authorization header.
+        This way the secure app discards the saved credentials. This is one of the ways to secure against this vulnerability.
+        The best way to secure against this vulnerability is to send credentials using Authorization header only if the newly acquired credentials
+        differ from the credentials used for the previous session.
+         */
     }
 
     private void doWebSettings(WebView webView) {
