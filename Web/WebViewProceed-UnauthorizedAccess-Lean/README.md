@@ -7,7 +7,7 @@ Tested on Android 5.1.1 - Android 8.1
 # Description of vulnerability and corresponding exploit
 An Android app can use `HttpAuthHandler#proceed(username, password)` to instruct WebView to perform authentication with the given credentials. When authentication is to be performed multiple times, WebView will send credentials saved from previous authentication. Therefore, apps relying on `HttpAuthHandler#proceed(username, password)` to oversee every authentication request may accidentally give access to third-parties.
 
-*Issue:* An application can request to load an html page using *loadUrl()*. If the loaded web page requires an *HTTP authentication* to access the web page then the server will send `401 Unauthorized` response. An app will then ask user to enter her credentials and an app will send those credentials using `HttpAuthHandler#proceed(username, password)`. For subsequent requests, an app sends the credentials saved from previous authentication. Therefore, if an app accepts a *username/password* pair from the third-party and gives them access to the server's resources by relying on `HttpAuthHandler#proceed(username, password)` for authentication, then the third-party may get to proceed through the authentication of the server even with incorrect *username/password* pair.
+*Issue:* An application can request to load an html page using *loadUrl()*. If the loaded web page requires an *HTTP authentication* to access the web page then the server will send `401 Unauthorized` response. An app will then ask user to enter her credentials and an app will send those credentials using `HttpAuthHandler#proceed(username, password)`. For subsequent requests, an app sends the credentials/tokens saved from previous authentication. Therefore, if an app accepts a *username/password* pair from the third-party and gives them access to the server's resources by relying on `HttpAuthHandler#proceed(username, password)` for authentication, then the third-party may get to proceed through the authentication of the server even with incorrect *username/password* pair.
 
 *Example:* The vulnerability is demonstrated by *Benign* and *Malicious*. The *Benign* app has an exported activity which accepts *username/password* pair and *ssn*. *Benign* connects to a server which asks for authentication to proceed to the *ssn* page. *Benign* has a *WebViewClient* which proceeds using provided *username/password* pair using `HttpAuthHandler#proceed(username, password)`. After a valid authentication of one or more *username/password* pair, *Malicious* sends a request to the exported activity of *Benign* with a *username/password* pair and *ssn*. Since *Benign* has a valid credentials from previous authentication, *Benign* sends the saved credentials and uploads *Malicious's* *ssn* on the server.
 
@@ -71,7 +71,6 @@ To defend against this attack, a *secure* app attaches an *Authorization header*
 # References
 
 1.  [Official Android Documentation](https://developer.android.com/reference/android/webkit/HttpAuthHandler.html#proceed(java.lang.String,%20java.lang.String)
-
 2.  [HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
 3.  [Authorization Header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)
-4. [GitHub discussion about browser sending credentials](https://github.com/miguelgrinberg/Flask-HTTPAuth/issues/14#issuecomment-211992433)
+4.  [GitHub discussion about browser sending credentials](https://github.com/miguelgrinberg/Flask-HTTPAuth/issues/14#issuecomment-211992433)
