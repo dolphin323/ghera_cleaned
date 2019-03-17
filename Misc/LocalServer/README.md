@@ -20,6 +20,12 @@
 
     Open up a web browser and type http://localhost:5000/test/
 
+4.  Run the https server with authorization
+
+    `$ pip install Flask-HTTPAuth`
+
+    `$ python index_http_webviewproceed_unauthorizedaccess.py`
+
 # Setup self-signed Certificates
 
 The certificates in the ssl/certificates folder were created with OpenSSL on a Mac. If these do not work then you can create your own certificates. Follow the instructions [here](https://support.rackspace.com/how-to/generate-a-csr-with-openssl/) for creating self-signed certificates with OpenSSL.
