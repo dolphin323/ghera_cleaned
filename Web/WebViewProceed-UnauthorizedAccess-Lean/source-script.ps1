@@ -1,5 +1,5 @@
 function before_install_vuln() {
-  $webServer = Start-Process powershell "cd ..\..\Misc\LocalServer; python.exe .\index_http_webviewproceed_unauthorizedaccess.py" -PassThru
+  $webServer = Start-Process powershell "cd ..\..\Misc\LocalServer; python.exe .\index_https_webviewproceed_unauthorizedaccess.py" -PassThru
 }
 
 function after_uninstall_secure() {
