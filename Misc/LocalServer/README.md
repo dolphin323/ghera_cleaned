@@ -1,33 +1,41 @@
 # Pre-requisites
 
 1.  Python 2.6 or Python3.3 or higher
-2.  You will also need Flask. Install Flask using the following command:
+
+# Setup HTTP Local Server
+
+1.  Install Flask
 
     `$ pip install Flask`
 
-# HTTP Local Server
-
-*   Start the HTTP local server
+2.  Run the http server
 
     `$ python index_http.py`
 
-*   Open up a web browser and type http://localhost:5000/test/
+    Open up a web browser and type http://localhost:5000/test/
 
-# HTTPS Local Server
+# Setup HTTPS Local Server
 
-*   Start the HTTPS local server
+1.  Install Flask
+
+    `$ pip install Flask`
+
+2.  Run the https server
 
     `$ python index_https.py`
 
-*   Open up a web browser and type https://localhost:5000/test/
+    Open up a web browser and type https://localhost:5000/test/
 
-# HTTPS Local Server with Authorization
+# Setup HTTPS Local Server with Authorization
+1.  Install Flask
 
-*   Install Flask-HTTPAuth
+    `$ pip install Flask`
+
+2. Install Flask-HTTPAuth
 
     `$ pip install Flask-HTTPAuth`
 
-*   Start the HTTPS local server with authorization
+3.  Run the https server with authorization
 
     `$ python index_https_webviewproceed_unauthorizedaccess.py`
 
