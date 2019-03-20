@@ -2,7 +2,7 @@
 
 1.  Python 2.6 or Python3.3 or higher
 
-# Setup Local Server
+# Setup HTTP Local Server
 
 1.  Install Flask
 
@@ -14,11 +14,30 @@
 
     Open up a web browser and type http://localhost:5000/test/
 
-3.  Run the https server
+# Setup HTTPS Local Server
+
+1.  Install Flask
+
+    `$ pip install Flask`
+
+2.  Run the https server
 
     `$ python index_https.py`
 
-    Open up a web browser and type http://localhost:5000/test/
+    Open up a web browser and type https://localhost:5000/test/
+
+# Setup HTTPS Local Server with Authorization
+1.  Install Flask
+
+    `$ pip install Flask`
+
+2. Install Flask-HTTPAuth
+
+    `$ pip install Flask-HTTPAuth`
+
+3.  Run the https server with authorization
+
+    `$ python index_https_webviewproceed_unauthorizedaccess.py`
 
 # Setup self-signed Certificates
 
