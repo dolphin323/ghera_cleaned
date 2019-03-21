@@ -19,6 +19,6 @@ Apps that connect to a server via the *HTTP* protocol are vulnerable to Man-in-t
 
 10. **WebViewLoadDataWithBaseUrl-UnauthorizedFileAccess-Lean** Apps that use loadDataWithBaseUrl() with a file scheme based baseURL (e.g., file://www.google.com) and allow the execution of JavaScript sourced from unverified source may expose the app's resources.
 
-11. **WebViewProceed-UnauthorizedAccess-Lean** Apps that use HttpAuthHandler#proceed(username, password) to instruct the WebView to perform authentication with the given credentials may give unauthorized access to third-party when the apps do not validate credentials, e.g., by sending token of previously validated credentials.
+11. **WebViewOverrideUrl-MITM-Lean** Apps that do not validate page requests made from within a WebView, are vulnerable to MitM attcaks.
 
-12. **WebViewOverrideUrl-MITM-Lean** Apps that do not validate page requests made from within a WebView, are vulnerable to MitM attcaks.
+12. **WebViewProceed-UnauthorizedAccess-Lean** Apps that use HttpAuthHandler#proceed(username, password) to instruct the WebView to perform authentication with the given credentials may give unauthorized access to third-party when the apps do not validate credentials, e.g., by sending token of previously validated credentials.
