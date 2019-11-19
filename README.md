@@ -3,6 +3,7 @@ This repository documents vulnerabilities that can occur in Android Java apps ru
 
 # What's New
 
+- Sep 12, 2019: Ghera's second Android security bug report was acknowledged as medium priority, fixed and released as a patch for Android 10 by the Android Security team. Here are a few related links: [Security Bulletin](https://source.android.com/security/bulletin/android-10), [CVE-2019-9463](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9463), and [Acknowledgements](https://source.android.com/security/overview/release-acknowledgements).
 - Mar 20, 2019: A new benchmark was added to the Web category that illustrates an unauthorized acces vulnerability stemming from the lack of authorization logic when interacting with a remote server. With this addition, Ghera now has 60 benchmarks.
 - Feb 28, 2019: With the addition of 2 new benchmarks to the Web category, Ghera now captures 59 known vulnerabilities.
 - Feb 21, 2019: A new Web benchmark that illustrates an unauthorized resource access to a content provider via JavaScript in WebView was added. This brings the total number of Ghera benchmarks to 57.
