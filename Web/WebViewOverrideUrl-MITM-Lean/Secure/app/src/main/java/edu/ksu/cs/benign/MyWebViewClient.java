@@ -22,11 +22,7 @@ public class MyWebViewClient extends WebViewClient {
     }
 
     private boolean getOverrideUrlSettings(WebView wv, String url) {
-        /*
-        In real-world use case, if url does not need special handling (e.g., trusted), then the url is loaded as it is;
-        otherwise, it is loaded after special handling in the else block.
-        */
-        if ("http://trust.server.edu/expected.js".equals(url))
+        if ("http:
             return false;
         else {
             wv.loadData("URL not trusted", "text/css", "UTF-8");

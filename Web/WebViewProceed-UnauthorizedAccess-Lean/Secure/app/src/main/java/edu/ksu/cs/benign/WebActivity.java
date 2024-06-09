@@ -24,13 +24,8 @@ public class WebActivity extends AppCompatActivity {
         final WebView webView = findViewById(R.id.webview);
         webView.setWebViewClient(new MyWebViewClient());
         doWebSettings(webView);
-        webView.loadUrl("https://10.0.2.2:5000/ssn/" + getIntent().getStringExtra("ssn"), getBasicHead());
+        webView.loadUrl("https:
 
-        /*
-        Note: The security fix used in the secure app sends credentials with every request using Authorization Header.
-        So, the saved credentials/tokens, if any, are ignored.
-        An ideal fix would be to invalidate previous authorization and reauthorize using the newly provided credentials.
-         */
     }
 
     private void doWebSettings(WebView webView) {

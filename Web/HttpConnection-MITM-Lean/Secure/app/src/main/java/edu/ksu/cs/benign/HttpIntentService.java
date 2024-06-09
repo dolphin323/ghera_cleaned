@@ -13,12 +13,6 @@ import java.net.URL;
 
 import javax.net.ssl.SSLHandshakeException;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions and extra parameters.
- */
 public class HttpIntentService extends IntentService {
 
     public HttpIntentService() {
@@ -30,7 +24,7 @@ public class HttpIntentService extends IntentService {
         if (intent != null) {
             HttpURLConnection urlConnection = null;
             try {
-                String urlString = "https://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+                String urlString = "https:
                         getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extention);
                 URL url = new URL(urlString);
                 urlConnection = (HttpURLConnection) url.openConnection();

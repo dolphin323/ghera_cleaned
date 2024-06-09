@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-/*
-Android 7.0 fixes this problem by giving preference to an intent filter inside the app.
-The Android documentation fails to mention this.
- */
 public class MalImageEditor extends AppCompatActivity {
 
     @Override

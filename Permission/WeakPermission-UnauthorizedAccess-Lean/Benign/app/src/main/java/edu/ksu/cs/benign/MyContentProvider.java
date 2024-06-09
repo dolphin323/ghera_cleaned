@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-/*
-MyContentProvider provides an interface to access senitive data stored in Benign.
- */
 
 public class MyContentProvider extends ContentProvider {
     private static String TAG = "Benign/MyCP";

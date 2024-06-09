@@ -23,7 +23,7 @@ public class Tests {
     private UiObject allApps;
 
     private void setupDevice() {
-        // Initialize UiDevice instance
+        
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         if (Build.VERSION.SDK_INT == 24
                 || Build.VERSION.SDK_INT == 23) {

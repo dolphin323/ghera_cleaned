@@ -11,12 +11,6 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions and extra parameters.
- */
 public class HttpIntentService extends IntentService {
 
     public HttpIntentService() {
@@ -28,7 +22,7 @@ public class HttpIntentService extends IntentService {
         if (intent != null) {
             HttpURLConnection urlConnection = null;
             try {
-                String urlString = "http://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+                String urlString = "http:
                         getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extention);
                 URL url = new URL(urlString);
                 urlConnection = (HttpURLConnection) url.openConnection();

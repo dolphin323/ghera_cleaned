@@ -13,9 +13,6 @@ public class MyWebViewClient extends WebViewClient {
 
     private static final String TAG = "WebViewInterceptReq";
 
-    /*
-    Returning null allows any url to load in the webview.
-     */
     @Override
     public WebResourceResponse shouldInterceptRequest(WebView wv, WebResourceRequest req) {
         Log.d(TAG, req.getUrl().toString());
@@ -23,11 +20,7 @@ public class MyWebViewClient extends WebViewClient {
     }
 
     private WebResourceResponse getInterceptRequestResponse(String url) {
-        /*
-        In real-world use case, if url does not need special handling (e.g., trusted), then the url is loaded as it is;
-        otherwise, it is loaded after special handling in the else block.
-        */
-        if ("http://trust.server.edu/expected.js".equals(url))
+        if ("http:
             return null;
         else {
             return getWebResourceResponseFromString();

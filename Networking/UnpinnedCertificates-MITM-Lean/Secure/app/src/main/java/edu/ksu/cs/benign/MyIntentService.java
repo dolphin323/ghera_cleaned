@@ -21,13 +21,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManagerFactory;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
- */
 public class MyIntentService extends IntentService {
 
     private static final String TAG = "TrustManagerExploit";
@@ -64,17 +57,17 @@ public class MyIntentService extends IntentService {
             keyStore.load(null, null);
             keyStore.setCertificateEntry("ca", ca);
 
-            // Create a TrustManager that trusts the CAs in our KeyStore
+            
             final String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
             final TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
             tmf.init(keyStore);
 
-            // Create an SSLContext that uses our TrustManager
+            
             SSLContext context = SSLContext.getInstance("TLS");
             context.init(null, tmf.getTrustManagers(), null);
 
-            // Tell the URLConnection to use a SocketFactory from our SSLContext
-            final String urlString = "https://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+            
+            final String urlString = "https:
                     getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
             final URL url = new URL(urlString);
             HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();

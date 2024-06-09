@@ -40,23 +40,4 @@ public class MyIntentService extends IntentService {
         };
         try {
             SSLCertificateSocketFactory x = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
-            /*
-            url is signed by the CA that does not recognize the host name
-             */
             x.setTrustManagers(trustAllCerts);
-            /* Use of a string as the first parameter will throw a hostname verification error*/
-            SSLSocket y = (SSLSocket) x.createSocket(getResources().getString(R.string.local_server_ipv4), Integer.parseInt(getResources().getString(R.string.local_server_port)));
-            Intent activityIntent = new Intent(this, ResponseActivity.class);
-            activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            activityIntent.putExtra("status_msg", "SUCCESS");
-            this.startActivity(activityIntent);
-        } catch (IOException e) {
-            Log.d(TAG, "Exception Occured.");
-            e.printStackTrace();
-            Intent activityIntent = new Intent(this, ResponseActivity.class);
-            activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            activityIntent.putExtra("status_msg", "FAILURE");
-            this.startActivity(activityIntent);
-        }
-    }
-}

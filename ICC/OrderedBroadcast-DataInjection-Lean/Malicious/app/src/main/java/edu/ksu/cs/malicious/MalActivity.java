@@ -6,11 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-/*
-This app contains a malicious broadcast that listens to outgoing
-calls, intercepts them, changes the number and forwards it to
-the next receiver.
- */
 public class MalActivity extends AppCompatActivity {
 
     public static int REQ_CODE = 101;

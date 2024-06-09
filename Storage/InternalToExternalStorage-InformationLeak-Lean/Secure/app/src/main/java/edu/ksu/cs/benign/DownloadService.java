@@ -12,13 +12,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
- */
 public class DownloadService extends IntentService {
     private static String TAG = "Secure/DownloadService";
 
@@ -41,9 +34,6 @@ public class DownloadService extends IntentService {
                     }
                     Log.d(TAG, sb.toString());
 
-                /*
-                writing to external storage
-                 */
                     file = new File(getExternalFilesDir(null), FILENAME);
                     OutputStream os = new FileOutputStream(file);
                     os.write(sb.toString().getBytes());

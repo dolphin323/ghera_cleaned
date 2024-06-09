@@ -23,7 +23,7 @@ public class Tests {
     private UiObject allApps;
 
     private void setupDevice() {
-        // Initialize UiDevice instance
+        
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
         UiObject btn = mDevice.findObject(new UiSelector().text("GOT IT"));

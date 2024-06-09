@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         WebView webView = (WebView) findViewById(R.id.webview1);
         WebSettings webSettings = webView.getSettings();
-        String url = "http://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+        String url = "http:
                 getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
         webView.loadUrl(url);
         webView.setWebViewClient(new MyWebViewClient());

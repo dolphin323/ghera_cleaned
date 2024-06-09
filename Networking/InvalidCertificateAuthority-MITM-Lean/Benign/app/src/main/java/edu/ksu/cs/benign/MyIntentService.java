@@ -16,13 +16,6 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
- */
 public class MyIntentService extends IntentService {
 
     private static final String TAG = "TrustManagerExploit";
@@ -54,10 +47,7 @@ public class MyIntentService extends IntentService {
             SSLContext sslContext = SSLContext.getInstance("TLS");
             TrustManager[] trustmanagers = new TrustManager[]{new MyTrustManager()};
             sslContext.init(null, trustmanagers, null);
-            /*
-            url has a self signed certificate
-             */
-            String urlString = "https://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+            String urlString = "https:
                     getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
             URL url = new URL(urlString);
             urlConnection = (HttpsURLConnection) url.openConnection();

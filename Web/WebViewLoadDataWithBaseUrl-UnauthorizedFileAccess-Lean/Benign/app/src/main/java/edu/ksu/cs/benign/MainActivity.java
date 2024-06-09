@@ -40,11 +40,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        webView.loadDataWithBaseURL("file:///www.google.com", data, mimeType, encoding, null);
-        /*
-        Adding a baseUrl="www.google.com" instead of "file:///www.google.com" changes the baseUrl to
-        data scheme URL. This will result in cross-origin file-access if sourced JS tries to access local device files.
-         */
+        webView.loadDataWithBaseURL("file:
     }
 
     private String readFile(final InputStream file) throws IOException {

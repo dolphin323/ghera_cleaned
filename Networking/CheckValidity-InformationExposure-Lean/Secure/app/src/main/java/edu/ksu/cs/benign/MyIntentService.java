@@ -47,10 +47,7 @@ public class MyIntentService extends IntentService {
             SSLContext sslContext = SSLContext.getInstance("TLS");
             TrustManager[] trustmanagers = new TrustManager[]{new MyTrustManager()};
             sslContext.init(null, trustmanagers, null);
-            /*
-            url is signed by the CA that does not recognize the host name
-             */
-            String urlString = "https://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+            String urlString = "https:
                     getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
             URL url = new URL(urlString);
             urlConnection = (HttpsURLConnection) url.openConnection();

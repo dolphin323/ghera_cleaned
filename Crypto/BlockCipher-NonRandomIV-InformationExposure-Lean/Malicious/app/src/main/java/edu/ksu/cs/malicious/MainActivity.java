@@ -24,11 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /*
-
-    on clicking verify, write send name, grade to content provider in benign
-    query content provider and check for duplicates.
-     */
 
     @Override
     protected void onResume() {

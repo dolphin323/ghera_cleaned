@@ -35,12 +35,12 @@ public class FileEditActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText et = (EditText) findViewById(R.id.fileData);
                 if (isConnectedToInternet()) {
-                    //save changes to Database
+                    
                     if (insertContentProvider(et.getText().toString()))
                         Log.d(TAG, "changes saved to DB successfully");
                     else Log.d(TAG, "Failed to save changes to DB");
                 } else {
-                    //save changes to device.
+                    
                     if (backup(et.getText().toString(), i))
                         Log.d(TAG, "Data backed up");
                     else Log.d(TAG, "Failed to backup data");
@@ -50,36 +50,19 @@ public class FileEditActivity extends AppCompatActivity {
 
     }
 
-    /*
-    Implement this method if you want to query data from a DB through FileContentProvider.
-     */
     private String queryContentProvider(String filename) {
-        /*
-        query Database.
-         */
         return "data in " + filename;
     }
 
-    /*
-    Implement this method if you want to insert data into a DB through FileContentProvider.
-    If insert is successful it returns true else it returns false.
-     */
     private boolean insertContentProvider(String data) {
         return false;
     }
 
-    /*
-    Implement this method to check for internet connection.
-    Return true if connection is successful else return false.
-     */
     private Boolean isConnectedToInternet() {
         return false;
     }
 
 
-    /*
-    saves data in the app's internal filesystem
-     */
     private boolean backup(String data, Intent i) {
         Uri.Builder ub = new Uri.Builder();
         ub.authority("edu.ksu.cs.benign.filecontentprovider");

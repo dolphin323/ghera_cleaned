@@ -42,7 +42,7 @@ public class MyIntentService extends IntentService {
         HttpsURLConnection urlConnection = null;
         try {
             SSLSocketFactory insecureFactory = SSLCertificateSocketFactory.getInsecure(0xFFFFFFFF, null);
-            String urlString = "https://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+            String urlString = "https:
                     getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
             URL url = new URL(urlString);
             urlConnection = (HttpsURLConnection) url.openConnection();

@@ -49,9 +49,6 @@ public class FIleContentProvider extends ContentProvider {
         return 0;
     }
 
-    /*
-    call to backup any data in internal storage when connectivity is lost.
-     */
     @Override
     public Bundle call(String method, String arg, Bundle extras) {
         if (method != null

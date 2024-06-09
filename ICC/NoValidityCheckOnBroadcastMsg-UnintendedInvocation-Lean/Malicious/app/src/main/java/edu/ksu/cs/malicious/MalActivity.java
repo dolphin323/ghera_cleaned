@@ -7,12 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-/*
-This app contains a malicious activity that
-invokes an unprotected exported broadcast receiver
-(expecting a system broadcast) via an explicit intent
-and deletes all files in its local storage.
-*/
 public class MalActivity extends AppCompatActivity {
 
     @Override

@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        String url = "http://" + getResources().getString(R.string.local_server_ipv4) + ":" +
+        String url = "http:
                 getResources().getString(R.string.local_server_port) + getResources().getString(R.string.url_extension);
         WebView webView = (WebView) findViewById(R.id.webview1);
         WebSettings webSettings = webView.getSettings();

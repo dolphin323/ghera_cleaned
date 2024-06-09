@@ -11,11 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-/*
-This app contains an unprotected exported Receiver that
-intercepts an outgoing app and reformats it to a US
-number by adding +1 to it.
- */
 public class MainActivity extends AppCompatActivity {
 
     public static int REQ_CODE = 101;

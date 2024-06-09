@@ -22,11 +22,11 @@ public class GPSTracker extends Service implements LocationListener {
     Location location;
     protected LocationManager locationManager;
 
-    // The minimum distance to change Updates in meters
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 0 meters
+    
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; 
 
-    // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 10; // 10 sec
+    
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 10; 
 
     public GPSTracker(Context context) {
         this.mContext = context;
@@ -72,9 +72,6 @@ public class GPSTracker extends Service implements LocationListener {
         return location;
     }
 
-    /**
-     * Stop using GPS listener Calling this function will stop using GPS in your app.
-     */
     public void stopUsingGPS() {
         if (locationManager != null) {
             try {
@@ -87,15 +84,12 @@ public class GPSTracker extends Service implements LocationListener {
         }
     }
 
-    /**
-     * Function to get latitude
-     */
     @JavascriptInterface
     public double getLatitude() {
         if (location != null) {
             return location.getLatitude();
         } else {
-            // return dummy value
+            
             return 42.42;
         }
     }

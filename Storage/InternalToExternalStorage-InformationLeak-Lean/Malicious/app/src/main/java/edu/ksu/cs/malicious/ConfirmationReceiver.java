@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-/**
- * Created by Aditya on 2/5/2018.
- */
 
 public class ConfirmationReceiver extends BroadcastReceiver {
     @Override

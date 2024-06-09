@@ -4,9 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-/**
- * Created by Joy on 3/1/17.
- */
 
 public class EmailBroadcastRecv extends BroadcastReceiver {
 

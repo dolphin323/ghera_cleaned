@@ -5,14 +5,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-/**
- * Helper class for MyDatabase.
- *
- * @author joymitro1989@gmail.com (Joydeep Mitra)
- */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
-    //If you change the Database Schema you must increment the DATABASE_VERSION
+    
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "CloudDBCache.db";
 

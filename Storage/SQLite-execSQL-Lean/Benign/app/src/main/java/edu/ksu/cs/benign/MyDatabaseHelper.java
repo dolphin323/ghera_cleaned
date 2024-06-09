@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
-    //If you change the Database Schema you must increment the DATABASE_VERSION
+    
     public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "CloudDBCache.db";
 

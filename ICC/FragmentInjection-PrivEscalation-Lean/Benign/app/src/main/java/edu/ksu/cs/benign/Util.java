@@ -2,9 +2,6 @@ package edu.ksu.cs.benign;
 
 import android.support.v4.app.Fragment;
 
-/**
- * Created by Joy on 5/15/18.
- */
 
 public class Util {
     public static Fragment getFragmentInstance(String fname){

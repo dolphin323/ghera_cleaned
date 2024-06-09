@@ -19,7 +19,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         super.onResume();
         Intent recvIntent = getIntent();
         String path = recvIntent.getStringExtra("path");
-        Uri uri = Uri.parse("content://edu.ksu.cs.benign.userdetails" + path);
+        Uri uri = Uri.parse("content:
         Intent sendIntent = new Intent();
         sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         sendIntent.setData(uri);

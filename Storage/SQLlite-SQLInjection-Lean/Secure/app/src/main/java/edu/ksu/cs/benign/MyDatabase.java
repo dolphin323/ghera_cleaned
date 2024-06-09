@@ -2,9 +2,6 @@ package edu.ksu.cs.benign;
 
 import android.provider.BaseColumns;
 
-/**
- * Created by Joy on 9/6/17.
- */
 
 public final class MyDatabase {
 

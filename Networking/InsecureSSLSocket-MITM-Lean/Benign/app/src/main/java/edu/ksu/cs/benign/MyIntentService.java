@@ -43,10 +43,6 @@ public class MyIntentService extends IntentService {
         try {
             Log.d(TAG, "Service started");
             SSLCertificateSocketFactory x = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
-            /*
-            url is signed by the CA that does not recognize the host name
-
-             */
             String ipAddrv4 = getResources().getString(R.string.local_server_ipv4);
             String[] ipAddrv4Arr = ipAddrv4.split("\\.");
             byte[] addr = {Byte.parseByte(ipAddrv4Arr[0]), Byte.parseByte(ipAddrv4Arr[1]), Byte.parseByte(ipAddrv4Arr[2]), Byte.parseByte(ipAddrv4Arr[3])};

@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
             keyStore = java.security.KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
 
-            // For demonstration purpose,  as password here we have used a character array which is exposed in the code.
-            // But in practice password should be kept in secure channels e.g remote server.
+            
+            
             KeyStore.ProtectionParameter pp = new KeyStore.PasswordProtection(new char[]{'s', 'e', 'c', 'u', 'r', 'e'});
             keyStore.setEntry(ALIAS, new KeyStore.SecretKeyEntry(secretKey), pp);
             File file = new File(getExternalFilesDir(null), "secretKeyStore");

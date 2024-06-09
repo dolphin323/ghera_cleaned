@@ -22,11 +22,6 @@ public class MyTrustManager implements X509TrustManager {
     @Override
     public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
         Log.d("Benign", "Insied TM");
-        /*
-         * For the purpose of experimentation, we are using self-signed certificate to start the Malicious server.
-         * Since, self-signed certificate will be rejected by Android's default trust manager, we are merely checking if the expected certificate is present in the chain.
-         * In real world scenario, if Malicious server gets its certificate signed by one of the trsuted CAs of Android system, then implementing default TM will result into trusting the Malicious server.
-         * */
         final Certificate trustedCA;
         InputStream fakeCAInput = null;
         try {

@@ -35,29 +35,29 @@ public class Tests {
     private UiDevice mDevice;
 
     private void setupDevice() {
-        // Initialize UiDevice instance
+        
         mDevice = UiDevice.getInstance(getInstrumentation());
     }
 
     private void startApp(final String appPackageName) {
-        // Start from the home screen
+        
         mDevice.pressHome();
 
-        // Wait for launcher
+        
         final String launcherPackage = mDevice.getLauncherPackageName();
         assertThat(launcherPackage, notNullValue());
         mDevice.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)),
                 LAUNCH_TIMEOUT);
 
-        // Launch the app
+        
         Context context = InstrumentationRegistry.getContext();
         final Intent intent = context.getPackageManager()
                 .getLaunchIntentForPackage(appPackageName);
-        // Clear out any previous instances
+        
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
 
-        // Wait for the app to appear
+        
         mDevice.wait(Until.hasObject(By.pkg(appPackageName).depth(0)),
                 LAUNCH_TIMEOUT);
         getInstrumentation().waitForIdleSync();
@@ -69,7 +69,7 @@ public class Tests {
 
         startApp(BENIGN_APP_PACKAGE);
 
-        //Truncate button click..
+        
         UiObject truncateButton = mDevice.findObject(new UiSelector()
                 .resourceId(BENIGN_APP_PACKAGE + ":id/truncateButton"));
         truncateButton.click();
@@ -78,7 +78,7 @@ public class Tests {
         UiObject res = mDevice.findObject(new UiSelector().resourceId(BENIGN_APP_PACKAGE + ":id/res"));
         assertEquals(res.getText(), "Successfully truncated!");
 
-        //Insert button click..
+        
         UiObject insertButton = mDevice.findObject(new UiSelector()
                 .resourceId(BENIGN_APP_PACKAGE + ":id/insertButton"));
         insertButton.click();

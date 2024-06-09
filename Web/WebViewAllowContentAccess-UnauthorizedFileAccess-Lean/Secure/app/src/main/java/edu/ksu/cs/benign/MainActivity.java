@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         String url = getResources().getString(R.string.url);
         webView.loadUrl(url);
         webView.setWebViewClient(new MyWebViewClient());
-        webSettings.setAllowContentAccess(false);    //It is true by default
+        webSettings.setAllowContentAccess(false);    
         webSettings.setJavaScriptEnabled(true);
         webSettings.setAllowUniversalAccessFromFileURLs(false);
     }

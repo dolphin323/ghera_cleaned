@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        webView.loadDataWithBaseURL("http://10.0.2.2:5000/", data, mimeType, encoding, null);
+        webView.loadDataWithBaseURL("http:
     }
 
     private String readFile(final InputStream file) throws IOException {

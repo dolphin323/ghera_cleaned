@@ -8,10 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-/*
-A malicious app that exploits a benign content provider to write files into internal storage
-without requesting for write permissions.
- */
 public class MainActivity extends AppCompatActivity {
 
     @Override
